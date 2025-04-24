@@ -183,6 +183,40 @@
 
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/speed_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.craxiom.networksurvey.speedviewlib.SpeedView
+                    android:id="@+id/speedView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:sv_withIndicatorLight="true"/>
+                <TextView
+                    android:id="@+id/dBm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="-999dBm" />
+
+                <TextView
+                    android:id="@+id/strengthIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Test Coverage" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
         <include
             layout="@layout/location_card"
             android:id="@+id/location_card" />

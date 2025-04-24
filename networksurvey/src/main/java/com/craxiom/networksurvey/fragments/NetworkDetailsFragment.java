@@ -47,6 +47,8 @@ import com.craxiom.networksurvey.model.CellularProtocol;
 import com.craxiom.networksurvey.model.CellularRecordWrapper;
 import com.craxiom.networksurvey.model.NrRecordWrapper;
 import com.craxiom.networksurvey.services.NetworkSurveyService;
+import com.craxiom.networksurvey.speedviewlib.SpeedView;
+import com.craxiom.networksurvey.speedviewlib.Speedometer;
 import com.craxiom.networksurvey.ui.cellular.CellularChartViewModel;
 import com.craxiom.networksurvey.ui.cellular.ComposeFunctions;
 import com.craxiom.networksurvey.ui.cellular.model.ServingCellInfo;
@@ -95,6 +97,8 @@ public class NetworkDetailsFragment extends AServiceDataFragment implements ICel
     private CellularViewModel viewModel;
     private CellularChartViewModel chartViewModel;
     private SharedViewModel sharedViewModel;
+
+    private SpeedView speedView;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState)
