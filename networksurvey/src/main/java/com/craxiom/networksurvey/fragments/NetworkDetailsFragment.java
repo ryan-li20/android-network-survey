@@ -277,7 +277,6 @@ public class NetworkDetailsFragment extends AServiceDataFragment implements ICel
         viewModel.getSignalOne().observe(viewLifecycleOwner, this::updateSignalStrengthOne);
         viewModel.getSignalTwo().observe(viewLifecycleOwner, this::updateSignalStrengthTwo);
         viewModel.getSignalThree().observe(viewLifecycleOwner, this::updateSignalStrengthThree);
-
         viewModel.getNrNeighbors().observe(viewLifecycleOwner, this::updateNrNeighborsView);
         viewModel.getLteNeighbors().observe(viewLifecycleOwner, this::updateLteNeighborsView);
         viewModel.getUmtsNeighbors().observe(viewLifecycleOwner, this::updateUmtsNeighborsView);
