@@ -72,6 +72,8 @@ import app.futured.donut.DonutProgressView;
 import app.futured.donut.DonutSection;
 import timber.log.Timber;
 
+import com.github.anastr.speedviewlib.components.Section;
+
 /**
  * A fragment for displaying the latest cellular network details to the user.
  *
@@ -974,6 +976,16 @@ public class NetworkDetailsFragment extends AServiceDataFragment implements ICel
         binding.signalOneValue.setText(signalValue != null ? getString(R.string.dbm_value_label, String.valueOf(signalValue)) : "");
         setSignalStrengthBar(binding.progressBarSignalOne, signalValue, protocol.getMinSignalOne(), protocol.getMaxNormalizedSignalOne());
         SpeedView speedView = binding.getRoot().findViewById(R.id.speedView);
+//        speedView.clearSections();
+//        Section s1 = new Section(0f, 0.2f, Color.RED);
+//        Section s2 = new Section(0.2f, 0.4f, Color.rgb(255, 165, 0));
+//        Section s3 = new Section(0.4f, 0.6f, Color.YELLOW);
+//        Section s4 = new Section(0.6f, 1f, Color.GREEN);
+//        speedView.addSections(Section(0.6f, 1f, Color.GREEN));
+//        speedView.addSections(s2);
+//
+//        speedView.addSections();
+//        speedView.addSections();
         speedView.setSpeedTextColor(Color.TRANSPARENT);
         setSignalStrengthSpeedometer(speedView, signalValue);
         TextView dBmTextView = binding.getRoot().findViewById(R.id.dBm);
