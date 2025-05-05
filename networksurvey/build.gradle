@@ -199,6 +199,8 @@ dependencies {
     androidTestImplementation 'com.google.truth:truth:1.4.4'
     androidTestImplementation "com.craxiom:network-survey-messaging:${networkSurveyMessagingVersion}"
     androidTestImplementation "mil.nga.geopackage:geopackage-android:6.7.3"
+    implementation 'com.github.anastr:speedviewlib:1.6.1'
+
 }
 
 import com.github.jk1.license.filter.LicenseBundleNormalizer

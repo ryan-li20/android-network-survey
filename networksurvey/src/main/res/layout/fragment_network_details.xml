@@ -199,7 +199,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    app:sv_withIndicatorLight="true"/>
+                    app:sv_withIndicatorLight="true"
+                    app:sv_unitTextColor="@android:color/transparent"
+                    app:sv_textColor="@android:color/transparent"
+                    />
+
                 <TextView
                     android:id="@+id/dBm"
                     android:layout_width="wrap_content"

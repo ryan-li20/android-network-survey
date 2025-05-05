@@ -973,9 +973,48 @@ public class NetworkDetailsFragment extends AServiceDataFragment implements ICel
         binding.signalOneGroup.setVisibility(signalValue == null ? View.GONE : View.VISIBLE);
         binding.signalOneValue.setText(signalValue != null ? getString(R.string.dbm_value_label, String.valueOf(signalValue)) : "");
         setSignalStrengthBar(binding.progressBarSignalOne, signalValue, protocol.getMinSignalOne(), protocol.getMaxNormalizedSignalOne());
+        SpeedView speedView = binding.getRoot().findViewById(R.id.speedView);
+        speedView.setSpeedTextColor(Color.TRANSPARENT);
+        setSignalStrengthSpeedometer(speedView, signalValue);
+        TextView dBmTextView = binding.getRoot().findViewById(R.id.dBm);
+        if (signalValue != null) {
+            dBmTextView.setText(String.format("%ddBm", signalValue));
+        } else {
+            dBmTextView.setText("No Signal");
+        }
+        TextView strengthIndicatorTextView = binding.getRoot().findViewById(R.id.strengthIndicator);
+        if(signalValue <= -100){
+            strengthIndicatorTextView.setText(String.format("Poor Coverage"));
+        } else if(signalValue >= -80){
+            strengthIndicatorTextView.setText(String.format("Excellent Coverage"));
+        } else if(signalValue >= -90){
+            strengthIndicatorTextView.setText(String.format("Good Coverage"));
+        } else {
+            strengthIndicatorTextView.setText(String.format("Fair Coverage"));
+        }
+
+    }
+
+    private void setSignalStrengthSpeedometer(SpeedView speedView, Integer signalValue)
+    {
+        final int maxDbm = -60;   // Best signal
+        final int minDbm= -110;  // Worst signal
+
+        if (signalValue == null || signalValue < -200) {
+            speedView.speedTo(0);
+            return;
+        }
+
+        int clampedSignal = Math.max(minDbm, Math.min(maxDbm, signalValue));
+
+        // -100 -> 0, -50 -> 100
+        int scaledValue = (int) ((clampedSignal - minDbm) * (100.0 / (maxDbm - minDbm)));
+
+        speedView.speedTo(scaledValue, 100);
     }
 
     /**
+     *
      * Sets the provided value on the second Signal Strength display, and handles configuring the display with the
      * appropriate min and max value.
      *
